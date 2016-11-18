@@ -1,0 +1,1 @@
+"C:\Program Files\Java\jre1.8.0_77\bin\java.exe" -jar "D:\Programs\Antlr\antlr-4.2.2-complete.jar -o out %1"

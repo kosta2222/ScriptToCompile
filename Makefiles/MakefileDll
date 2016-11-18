@@ -1,0 +1,35 @@
+# Project: Project1
+# Makefile created by Dev-C++ 5.11
+FILESRC  =main.cpp
+CPP      = g++.exe  -D__DEBUG__
+CC       = gcc.exe  -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o
+LINKOBJ  = main.o
+LIBS     = -L"D:/Programs/CodeBlocks/MinGW/lib/gcc/mingw32/4.7.1/" -lstdc++  -m32 -g3
+INCS     =  -I"D:/Programs/CodeBlocks/MinGW/include"
+CXXINCS  =
+BIN      = bin/Project1.dll
+CXXFLAGS = $(CXXINCS) -m32 -g3
+CFLAGS   = $(INCS) -m32 -g3
+RM       = rm.exe -f
+IMPLIB   =MyProject.a  #название библиотеки импорта
+PARAMSTOCREATEIMPLIB=-Wl,--out-implib
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP)  -shared $(OBJ) -o $(BIN) $(PARAMSTOCREATEIMPLIB),$(IMPLIB) 
+
+$(LINKOBJ): $(FILESRC)
+	$(CPP)  -c $(FILESRC) -o $(OBJ) $(INCS) 
+
+#если Makefile,то запускать mingw32-make
+#если ex: MakefileExe ,то mingw32-make -f MakefileExe
+#-lstdc++ параметр линкования со стандартными либами C++
+#GCC из CodeBlocks

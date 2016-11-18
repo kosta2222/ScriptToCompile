@@ -1,0 +1,1 @@
+start cmd /K "D:\NetBeans 8.1\bin\netbeans.exe" --console suppress --open %1

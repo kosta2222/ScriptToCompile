@@ -1,0 +1,1 @@
+start cmd /K "D:\Programs\lispbox-0.7\ccl-1.6-windowsx86\wx86cl.exe" -l  %1

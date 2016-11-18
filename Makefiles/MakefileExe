@@ -1,0 +1,33 @@
+# Project: Project1
+# Makefile created by Dev-C++ 5.11
+FILESRC  =mainK.cpp
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main1.o
+LINKOBJ  = main1.o
+LIBS     = -L"D:/Programs/CodeBlocks/MinGW/lib/gcc/mingw32/4.7.1/" -lstdc++ -L"./" MyProject.a -m32 -g3
+INCS     =  -I"D:/Programs/CodeBlocks/MinGW/include"
+CXXINCS  =
+BIN      = bin/Project1.exe
+CXXFLAGS = $(CXXINCS) -m32 -g3
+CFLAGS   = $(INCS) -m32 -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(OBJ) -o $(BIN) $(LIBS)
+
+$(LINKOBJ): $(FILESRC)
+	$(CPP) -c $(FILESRC) -o $(OBJ) $(INCS)
+
+#если Makefile,то запускать mingw32-make
+#если ex: MakefileExe ,то mingw32-make -f MakefileExe
+#-lstdc++ параметр линкования со стандартными либами C++
+#GCC из CodeBlocks
